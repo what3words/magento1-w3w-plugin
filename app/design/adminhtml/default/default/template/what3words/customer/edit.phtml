@@ -1,0 +1,25 @@
+<?php
+/**
+ * @var $this What3Words_What3Words_Block_Adminhtml_Customer_Edit
+ */
+$config = $this->getConfigHelper();
+if ($config->getIsEnabled()) :
+    ?>
+
+    <!-- HTML to be injected into the customer address edit form -->
+    <script type="text/html" id="what3words-adminhtml-field">
+        <tr>
+            <td class="label">
+                <label for="what3words-adminhtml">
+                    <?php echo $this->__('3 word address'); ?>
+                </label>
+            </td>
+            <td class="value">
+                <input name="what3words-adminhtml"
+                       id="<?php echo $this->getInputLabel(); ?>" type="text"
+                       class="what3words-admin-input validate-what3words input-text"/>
+                <input type="hidden" class="what3words-hidden" />
+            </td>
+        </tr>
+    </script>
+<?php endif; ?>

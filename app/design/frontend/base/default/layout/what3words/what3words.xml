@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <checkout_onepage_index>
+        <reference name="head">
+            <action method="addJs" ifconfig="what3words/general/enabled">
+                <script>what3words/resource/jquery.w3w-autosuggest-plugin.bundle.min.js</script>
+            </action>
+            <action method="addJs" ifconfig="what3words/general/enabled">
+                <script>what3words/form/validation.js</script>
+            </action>
+            <action method="addJs" ifconfig="what3words/general/enabled">
+                <script>what3words/form/fields.js</script>
+            </action>
+            <action method="addCss" ifconfig="what3words/general/enabled">
+                <file>css/what3words/jquery.w3w-autosuggest-plugin.bundle.min.css</file>
+            </action>
+            <action method="addCss" ifconfig="what3words/general/enabled">
+                <file>css/what3words/jquery.w3w-autosuggest-plugin.css</file>
+            </action>
+            <action method="addCss" ifconfig="what3words/general/enabled">
+                <file>css/what3words/what3words.css</file>
+            </action>
+        </reference>
+        <reference name="checkout.onepage">
+            <block type="what3words/checkout_billing" template="what3words/checkout/billing.phtml"
+                   name="what3words.billing" as="what3wordsbilling" output="toHtml">
+                <action method="setFrontendId">
+                    <value>what3words-billing</value>
+                </action>
+            </block>
+            <block type="what3words/checkout_shipping" template="what3words/checkout/shipping.phtml"
+                   name="what3words.shipping" as="what3wordsshipping" output="toHtml">
+                <action method="setFrontendId">
+                    <value>what3words-shipping</value>
+                </action>
+            </block>
+            <block type="what3words/setup" template="what3words/setup.phtml"
+                   name="what3words.setup" as="what3wordssetup" output="toHtml" />
+        </reference>
+    </checkout_onepage_index>
+    <customer_address_form>
+        <reference name="head">
+            <action method="addJs" ifconfig="what3words/general/enabled">
+                <script>what3words/resource/jquery.w3w-autosuggest-plugin.bundle.min.js</script>
+            </action>
+            <action method="addJs" ifconfig="what3words/general/enabled">
+                <script>what3words/form/fields.js</script>
+            </action>
+            <action method="addJs" ifconfig="what3words/general/enabled">
+                <script>what3words/form/validation.js</script>
+            </action>
+            <action method="addCss" ifconfig="what3words/general/enabled">
+                <file>css/what3words/jquery.w3w-autosuggest-plugin.bundle.min.css</file>
+            </action>
+            <action method="addCss" ifconfig="what3words/general/enabled">
+                <file>css/what3words/jquery.w3w-autosuggest-plugin.css</file>
+            </action>
+            <action method="addCss" ifconfig="what3words/general/enabled">
+                <file>css/what3words/what3words.css</file>
+            </action>
+        </reference>
+      <reference name="my.account.wrapper">
+            <block type="what3words/customer_address" template="what3words/customer/address/edit.phtml"
+                   name="what3words.customer.address" as="what3wordscustomer">
+                <action method="setFrontendId">
+                    <value>what3words-customer-address</value>
+                </action>
+            </block>
+            <block type="what3words/setup" template="what3words/setup.phtml"
+                   name="what3words.setup" as="what3wordssetup" output="toHtml">
+            </block>
+        </reference>
+    </customer_address_form>
+    <customer_account_index>
+        <reference name="head">
+            <action method="addJs" ifconfig="what3words/general/enabled">
+                <script>what3words/view/info.js</script>
+            </action>
+        </reference>
+        <reference name="my.account.wrapper">
+            <block type="what3words/customer_order_info" template="what3words/order/info.phtml"
+                   name="what3words.sales.info" as="what3words_sales" output="toHtml" />
+        </reference>
+    </customer_account_index>
+    <sales_order_view>
+        <reference name="head">
+            <action method="addJs" ifconfig="what3words/general/enabled">
+                <script>what3words/view/info.js</script>
+            </action>
+        </reference>
+        <reference name="sales.order.view">
+            <block type="what3words/customer_order_info" template="what3words/order/info.phtml"
+                   name="what3words.sales.info" as="what3words_sales" output="toHtml" />
+        </reference>
+    </sales_order_view>
+</layout>

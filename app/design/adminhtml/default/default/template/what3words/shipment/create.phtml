@@ -1,0 +1,35 @@
+<?php
+/**
+ * @var $this Mage_Adminhtml_Block_Sales_Order_Shipment_Create_Form
+ * @var $w3wConfigHelper What3Words_What3Words_Helper_Config
+ * @var $w3wHelper What3Words_What3Words_Helper_Data
+ */
+$w3wConfigHelper = Mage::helper('what3words/config');
+if ($w3wConfigHelper->getIsEnabled()) :
+    $w3wHelper = Mage::helper('what3words');
+    if ($threeWordAddress = $w3wHelper->getW3wByOrderId($this->getOrder()->getEntityId())) :
+        ?>
+        <script type="text/html" id="what3words-adminhtml-shipping">
+            <div class="box-right">
+                <div class="entry-edit">
+                    <div class="entry-edit-head">
+                        <h4><?php echo $w3wHelper->__('3 word address') ?></h4>
+                    </div>
+                    <fieldset>
+                        <p>
+                            <strong><?php echo $this->__($threeWordAddress->getW3w()) ?>
+                        </p>
+                    </fieldset>
+                </div>
+            </div>
+        </script>
+        <script type="text/javascript">
+            jQuery(document).ready(function() {
+                var html = $('what3words-adminhtml-shipping').innerHTML,
+                    addressElem = jQuery('.entry-edit-head').find('[class="icon-head head-payment-method"]').parents('.box-left');
+                addressElem.after(html);
+            });
+
+        </script>
+    <?php endif; ?>
+<?php endif; ?>

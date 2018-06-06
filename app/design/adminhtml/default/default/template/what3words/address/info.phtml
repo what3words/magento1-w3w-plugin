@@ -1,0 +1,24 @@
+<?php
+/**
+ * @var $this What3Words_What3Words_Block_Adminhtml_Address_Info
+ * @var $w3wConfigHelper What3Words_What3Words_Helper_Config
+ */
+$w3wConfigHelper = Mage::helper('what3words/config');
+if ($w3wConfigHelper->getIsEnabled()) :
+    $w3wHelper = Mage::helper('what3words');
+    if ($threeWordAddress = $this->getW3wFromOrder()) :
+?>
+        <div class="box-right">
+            <div class="entry-edit">
+                <div class="entry-edit-head">
+                    <h4><?php echo $w3wHelper->__('3 word address') ?></h4>
+                </div>
+                <fieldset>
+                    <p>
+                        <strong><?php echo $this->__($threeWordAddress->getW3w()) ?>
+                    </p>
+                </fieldset>
+            </div>
+        </div>
+    <?php endif; ?>
+<?php endif; ?>

@@ -1,0 +1,28 @@
+<?php
+/**
+ * @var $config What3Words_What3Words_Helper_Config
+ * @var $this What3Words_What3Words_Block_Setup
+ */
+$config = $this->getConfigHelper();
+$addressIds = json_encode($this->getAvailableAddressIds());
+$allowedCountries = json_encode($this->getCountriesArray());
+$isArabic = $this->getIsArabicLocale();
+$typeaheadDelay = $config->getTypeaheadDelay();
+$addressUrl = $this->getAddressUrl();
+?>
+<script type="text/javascript">
+
+    jQuery(document).ready(function() {
+        new What3WordsField(
+            '<?php echo $config->getApiKey(); ?>',
+            '<?php echo $addressIds; ?>',
+            '<?php echo $allowedCountries; ?>',
+            '<?php echo $isArabic; ?>',
+            '<?php echo $config->getPlaceHolder(); ?>',
+            '<?php echo $this->getAjaxUrl(); ?>',
+            '<?php echo $this->getValidateCountryUrl(); ?>',
+            '<?php echo $typeaheadDelay; ?>',
+            '<?php echo $addressUrl; ?>'
+        );
+    });
+</script>

@@ -1,0 +1,14 @@
+<?php
+/**
+ * @var $this What3Words_What3Words_Block_Customer_Order_Info
+ */
+$threeWordAddress = $this->getW3wByOrderId();
+?>
+<script type="text/javascript">
+
+    jQuery(document).ready(function() {
+        var what3wordsInfo = new What3WordsInfo("<?php echo $this->getW3wByOrderId(); ?>");
+        what3wordsInfo.updateOrderInfo();
+    });
+
+</script>

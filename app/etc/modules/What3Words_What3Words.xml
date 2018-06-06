@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <What3Words_What3Words>
+            <active>true</active>
+            <codePool>community</codePool>
+        </What3Words_What3Words>
+    </modules>
+</config>

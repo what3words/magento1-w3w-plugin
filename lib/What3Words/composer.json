@@ -1,0 +1,8 @@
+{
+  "require" : {
+    "w3w-php-wrapper/src" : "2.2.0"
+  },
+  "config": {
+    "vendor-dir": ""
+  }
+}

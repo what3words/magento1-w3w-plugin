@@ -1,0 +1,11 @@
+{
+  "name": "what3words/what3words",
+  "type": "magento-module",
+  "description": "What3Words Magento1 Integration",
+  "authors": [
+    {
+      "name": "Vicki Tingle",
+      "email": "vicki@gene.co.uk"
+    }
+  ]
+}

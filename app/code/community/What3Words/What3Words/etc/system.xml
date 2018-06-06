@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<config>
+
+    <!-- Add our new tab -->
+    <tabs>
+        <what3words translate="label" module="what3words">
+            <label>what3words</label>
+            <sort_order>100</sort_order>
+        </what3words>
+    </tabs>
+
+    <sections>
+        <what3words translate="label">
+            <label>what3words</label>
+            <tab>what3words</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>1000</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+
+            <groups>
+                <general translate="label">
+                    <label>General</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>100</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+
+                    <fields>
+                        <enabled translate="label comment">
+                            <label>Enabled?</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment translate="title">Enable/disable the what3words input field.</comment>
+                        </enabled>
+                        <api_key translate="label comment">
+                            <label>API Key</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment translate="title">Registered API Key.</comment>
+                        </api_key>
+                        <allowed_countries translate="label">
+                            <label>Allowed Countries</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <sort_order>110</sort_order>
+                            <source_model>adminhtml/system_config_source_country</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment translate="title">Which countries allow the use of a what3words field?</comment>
+                        </allowed_countries>
+                        <aramex translate="label">
+                            <label>Enable Aramex Functionality?</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment translate="title">Should the system use Aramex functionality?</comment>
+                        </aramex>
+                    </fields>
+                </general>
+                <frontend translate="label">
+                    <label>Frontend</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>200</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <placeholder translate="label">
+                            <label>Input Placeholder</label>
+                            <frontend_type>text</frontend_type>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment translate="title">What placeholder should appear in the input field?</comment>
+                        </placeholder>
+                        <label_size translate="label">
+                            <label>Input Label Size</label>
+                            <frontend_type>text</frontend_type>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment translate="title">In what font size should the input label appear?</comment>
+                        </label_size>
+                        <label_color translate="label">
+                            <label>Input Label Colour</label>
+                            <frontend_type>text</frontend_type>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment translate="title">In what colour should the input label appear (in hex code format)?</comment>
+                        </label_color>
+                        <typeahead_delay translate="label">
+                            <label>Auto-suggest Delay</label>
+                            <frontend_type>text</frontend_type>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment translate="title">Delay in ms before retrieving results.</comment>
+                        </typeahead_delay>
+                    </fields>
+                </frontend>
+            </groups>
+        </what3words>
+    </sections>
+</config>

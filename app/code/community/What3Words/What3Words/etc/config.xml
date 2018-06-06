@@ -1,0 +1,184 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <What3Words_What3Words>
+            <version>0.0.3</version>
+        </What3Words_What3Words>
+    </modules>
+    <global>
+        <models>
+            <what3words>
+                <class>What3Words_What3Words_Model</class>
+                <resourceModel>what3words_what3words_resource</resourceModel>
+            </what3words>
+            <what3words_what3words_resource>
+                <class>What3Words_What3Words_Model_Resource</class>
+                <entities>
+                    <quote>
+                        <table>sales_quote_w3w</table>
+                    </quote>
+                    <order>
+                        <table>sales_order_w3w</table>
+                    </order>
+                    <address>
+                        <table>customer_address_w3w</table>
+                    </address>
+                </entities>
+            </what3words_what3words_resource>
+        </models>
+
+        <blocks>
+            <what3words>
+                <class>What3Words_What3Words_Block</class>
+            </what3words>
+            <customer>
+                <rewrite>
+                    <address_renderer_default>What3Words_What3Words_Block_Address_Renderer_Default</address_renderer_default>
+                </rewrite>
+            </customer>
+        </blocks>
+
+        <helpers>
+            <what3words>
+                <class>What3Words_What3Words_Helper</class>
+            </what3words>
+        </helpers>
+
+        <resources>
+            <what3words_what3words_setup>
+                <setup>
+                    <module>What3Words_What3Words</module>
+                </setup>
+            </what3words_what3words_setup>
+        </resources>
+
+        <events>
+            <controller_action_predispatch_checkout_onepage_saveBilling>
+                <observers>
+                    <what3words_what3words_save_to_quote>
+                        <model>what3words/observer</model>
+                        <method>saveToQuoteTable</method>
+                    </what3words_what3words_save_to_quote>
+                </observers>
+            </controller_action_predispatch_checkout_onepage_saveBilling>
+            <controller_action_predispatch_checkout_onepage_saveShipping>
+                <observers>
+                    <what3words_save_to_quote>
+                        <model>what3words/observer</model>
+                        <method>saveToQuoteTable</method>
+                    </what3words_save_to_quote>
+                </observers>
+            </controller_action_predispatch_checkout_onepage_saveShipping>
+            <sales_order_place_after>
+               <observers>
+                    <what3words_save_to_order>
+                        <model>what3words/observer</model>
+                        <method>saveToOrderTable</method>
+                    </what3words_save_to_order>
+                    <what3words_save_to_address_from_checkout>
+                        <model>what3words/observer</model>
+                        <method>saveToAddressTableFromCheckout</method>
+                    </what3words_save_to_address_from_checkout>
+                </observers>
+            </sales_order_place_after>
+            <adminhtml_customer_save_after>
+                <observers>
+                    <what3words_save_customer_in_admin>
+                        <model>what3words/observer</model>
+                        <method>saveAdminCustomerToTable</method>
+                    </what3words_save_customer_in_admin>
+                </observers>
+            </adminhtml_customer_save_after>
+            <customer_address_save_before>
+                <observers>
+                    <what3words_save_to_address_attribute>
+                        <model>what3words/observer</model>
+                        <method>saveAttribute</method>
+                    </what3words_save_to_address_attribute>
+                </observers>
+            </customer_address_save_before>
+            <customer_address_save_after>
+                <observers>
+                    <what3words_save_to_address_from_account>
+                        <model>what3words/observer</model>
+                        <method>saveToAddressTableFromAccount</method>
+                    </what3words_save_to_address_from_account>
+                </observers>
+            </customer_address_save_after>
+            <!-- Add an include path for the W3W Wrapper-->
+            <controller_front_init_before>
+                <observers>
+                    <what3words_include_lib>
+                        <type>singleton</type>
+                        <class>what3words/observer</class>
+                        <method>addIncludePath</method>
+                    </what3words_include_lib>
+                </observers>
+            </controller_front_init_before>
+            <core_block_abstract_to_html_after>
+                <observers>
+                    <what3words_add_block_to_sales_order_view>
+                        <class>what3words/observer</class>
+                        <method>getSalesOrderViewInfo</method>
+                    </what3words_add_block_to_sales_order_view>
+                </observers>
+            </core_block_abstract_to_html_after>
+        </events>
+
+    </global>
+
+    <adminhtml>
+        <layout>
+            <updates>
+                <what3words module="What3Words_What3Words">
+                    <file>what3words/what3words.xml</file>
+                </what3words>
+            </updates>
+        </layout>
+    </adminhtml>
+
+    <admin>
+        <routers>
+            <aramexshipment>
+                <args>
+                    <modules>
+                        <What3Words_What3Words before="Aramex_Shipment">What3Words_What3Words_Aramex</What3Words_What3Words>
+                    </modules>
+                </args>
+            </aramexshipment>
+        </routers>
+    </admin>
+
+    <frontend>
+        <layout>
+            <updates>
+                <what3words module="What3Words_What3Words">
+                    <file>what3words/what3words.xml</file>
+                </what3words>
+            </updates>
+        </layout>
+        <routers>
+            <what3words>
+                <use>standard</use>
+                <args>
+                    <module>What3Words_What3Words</module>
+                    <frontName>what3words</frontName>
+                </args>
+            </what3words>
+        </routers>
+    </frontend>
+
+    <default>
+        <what3words>
+            <general>
+                <aramex>0</aramex>
+            </general>
+            <frontend>
+                <placeholder>e.g. lock.spout.radar</placeholder>
+                <results>3</results>
+                <typeahead_delay>500</typeahead_delay>
+            </frontend>
+        </what3words>
+    </default>
+
+</config>

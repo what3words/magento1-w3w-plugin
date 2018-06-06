@@ -1,0 +1,98 @@
+.is-arabic {
+    width: 365px;
+}
+
+.what3words-input::-webkit-contacts-auto-fill-button {
+    visibility: hidden;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+}
+
+.typeahead__w3w-logo {
+    height: 30px;
+}
+
+.typeahead__cancel-button {
+    display: none;
+}
+
+.typeahead__container.cancel:not(.loading) .typeahead__cancel-button {
+    display: none !important;
+}
+
+.typeahead__container .typeahead__query:after {
+    height: 30px;
+    right: 5px;
+}
+
+.typeahead__query:before {
+    display: none;
+    content: '';
+}
+
+.typeahead__container {
+    width: 365px;
+}
+
+.typeahead__field input {
+    box-sizing: none;
+}
+
+.what3words-tooltip {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    /*right: 30px;*/
+    top: 5px;
+}
+
+.what3words-tooltip-icon {
+    height: 20px;
+}
+
+.typeahead__list {
+    width: 365px;
+}
+
+.what3words-label {
+    display:block;
+}
+
+.what3words-input-box {
+    display:inline-block;
+}
+
+/** Tooltip **/
+.what3words-tooltip:hover .what3words-tooltip-content {
+    display: block;
+}
+
+.what3words-tooltip-content {
+    position: absolute;
+    display: none;
+    padding: 8px;
+    width: 250px;
+    background-color: hsl(0, 0%, 96%);
+    border: 1px solid silver;
+    font-size: 14px;
+    line-height: 1.2;
+    opacity: 1;
+    bottom: 100%;
+    left: 50%;
+    -webkit-transition:
+            opacity 0.2s ease-in-out,
+            visibility 0.2s ease-in-out,
+            -webkit-transform 0.2s cubic-bezier(0.71, 1.7, 0.77, 1.24);
+    -moz-transition:
+            opacity 0.2s ease-in-out,
+            visibility 0.2s ease-in-out,
+            -moz-transform 0.2s cubic-bezier(0.71, 1.7, 0.77, 1.24);
+    transition:
+            opacity 0.2s ease-in-out,
+            visibility 0.2s ease-in-out,
+            transform 0.2s cubic-bezier(0.71, 1.7, 0.77, 1.24);
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform:    translate3d(0, 0, 0);
+    transform:         translate3d(0, 0, 0);
+}

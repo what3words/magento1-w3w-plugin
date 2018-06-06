@@ -1,0 +1,13 @@
+app/code/community/What3Words/What3Words app/code/community/What3Words/What3Words
+app/etc/modules/What3Words_What3Words.xml app/etc/modules/What3Words_What3Words.xml
+app/design/adminhtml/default/default/layout/what3words  app/design/adminhtml/default/default/layout/what3words
+app/design/adminhtml/default/default/template/what3words    app/design/adminhtml/default/default/template/what3words
+app/design/frontend/base/default/layout/what3words/what3words.xml app/design/frontend/base/default/layout/what3words/what3words.xml
+app/design/frontend/base/default/template/what3words app/design/frontend/base/default/template/what3words
+app/design/adminhtml/default/default/template/what3words app/design/adminhtml/default/default/template/what3words
+app/design/adminhtml/default/default/layout/what3words app/design/adminhtml/default/default/layout/what3words
+js/what3words js/what3words
+skin/frontend/base/default/css/what3words skin/frontend/base/default/css/what3words
+skin/adminhtml/base/default/css/what3words skin/adminhtml/base/default/css/what3words
+skin/frontend/base/default/css/what3words skin/frontend/base/default/images/what3words
+lib/What3Words  lib/What3Words

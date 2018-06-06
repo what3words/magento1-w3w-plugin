@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <adminhtml_sales_order_view>
+        <reference name="create_shipment">
+            <block type="what3words/adminhtml_aramex_shipment" template="what3words/aramex-shipment.phtml"
+                   name="what3words.aramex.shipment" as="what3words_aramex_shipment" output="toHtml"
+                   ifconfig="what3words/general/aramex">
+                <action method="setFrontendId">
+                    <value>what3words-aramex-shipment</value>
+                </action>
+            </block>
+        </reference>
+        <reference name="order_info">
+            <block type="what3words/adminhtml_address_info" name="what3words.address.info" template="what3words/address/info.phtml" before="order_history" />
+        </reference>
+    </adminhtml_sales_order_view>
+    <adminhtml_sales_order_shipment_new>
+        <reference name="head">
+            <action method="addJs"><script>lib/jquery/jquery-1.10.2.min.js</script></action>
+            <action method="addJs"><script>lib/jquery/noconflict.js</script></action>
+        </reference>
+        <reference name="content">
+            <block type="adminhtml/sales_order_shipment_create_form" template="what3words/shipment/create.phtml"/>
+        </reference>
+    </adminhtml_sales_order_shipment_new>
+    <adminhtml_sales_order_shipment_view>
+        <reference name="head">
+            <action method="addJs"><script>lib/jquery/jquery-1.10.2.min.js</script></action>
+            <action method="addJs"><script>lib/jquery/noconflict.js</script></action>
+        </reference>
+        <reference name="content">
+            <block type="adminhtml/sales_order_shipment_create_form" template="what3words/shipment/create.phtml"/>
+        </reference>
+    </adminhtml_sales_order_shipment_view>
+</layout>

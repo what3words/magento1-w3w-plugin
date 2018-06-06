@@ -1,0 +1,30 @@
+<?php
+/**
+ * @var $this What3Words_What3Words_Block_Adminhtml_Aramex_Shipment
+ * @var $config What3Words_What3Words_Helper_Config
+ */
+$orderId = $this->getRequest()->getParam('order_id');
+$what3words = $this->getW3wByOrderId($orderId);
+?>
+
+<!-- HTML to be injected into the Aramex form -->
+<div class="text_short what3words-aramex-field">
+    <label for="what3words-aramex">3 Word Address</label>
+    <div class="input-box">
+        <input name="what3words-aramex"
+               id="<?php echo $this->getInputLabel(); ?>"
+               type="text"
+               class="what3words-input"
+               value="<?php echo $what3words ? $what3words : ''; ?>"
+               data-type="aramex" />
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    jQuery(document).ready(function() {
+        var aramexForm = jQuery('#receiver_details');
+        aramexForm.append(jQuery('.what3words-aramex-field'));
+    });
+
+</script>
